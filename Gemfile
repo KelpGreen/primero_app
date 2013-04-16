@@ -8,6 +8,7 @@ gem 'rails', '3.2.3'
 group :development do
   gem 'sqlite3', '1.3.5'
   gem 'rspec-rails', '2.9.0'
+  gem 'guard-rspec', '0.5.5'
 end
 
 # Gems used only for assets and not required
@@ -24,7 +25,15 @@ end
 
 gem 'jquery-rails', '2.2.1'
 
-gem 'capybara', '1.1.2'
+group :test do
+  gem 'rspec-rails', '2.9.0'
+  gem 'capybara', '1.1.2'
+    
+  # Mac OS X 10.8 replaced Growl with its own notification system.
+  gem 'rb-fsevent', '~> 0.9.1'
+  gem 'terminal-notifier'
+  gem 'terminal-notifier-guard'
+end
 
 group :production do
   gem 'pg', '0.12.2'
