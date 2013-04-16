@@ -33,6 +33,9 @@ group :test do
   gem 'rb-fsevent', '~> 0.9.1'
   gem 'terminal-notifier'
   gem 'terminal-notifier-guard'
+  
+  gem 'guard-spork', '0.3.2'
+  gem 'spork', '0.9.0'
 end
 
 group :production do
