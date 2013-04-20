@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "StaticPages" do
-  let(:base_title) { 'Ruby on Rails Tutorial Sample App' }
+  let(:base_title) { 'Ruby on Rails Tutorial Primero App' }
   let(:static_pages) { '/static_pages' }
   
   describe 'About Us page' do
@@ -52,16 +52,20 @@ describe "StaticPages" do
   describe "Home page" do
     let(:url) { "#{static_pages}/home" }
     
-    it "should have the h1 'Sample App'" do
+    it "should have the h1 'Primero App'" do
       visit url
-      page.should have_selector('h1', :text => 'Sample App')
+      page.should have_selector('h1', text: 'Primero App')
     end
 
     it "should have the right title" do
       visit url
-      page.should have_selector('title', :text => "#{base_title} | Home")
+      page.should have_selector('title', text: "#{base_title}")
     end
     
+    it "should not have a cutome page title" do
+      visit url
+      page.should_not have_selector('title', text: '| Home')
+    end
   end
   
 end

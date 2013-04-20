@@ -21,4 +21,7 @@ doc/
 .project
 .DS_Store
 bundler_stubs/
-.rvmrc
+
+# Ignore RVM files
+.ruby-version
+.ruby-gemset
