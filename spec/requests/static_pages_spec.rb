@@ -2,18 +2,16 @@ require 'spec_helper'
 
 describe "StaticPages" do
   let(:base_title) { 'Ruby on Rails Tutorial Primero App' }
-  let(:static_pages) { '/static_pages' }
   
   describe 'About Us page' do
-    let(:url) { "#{static_pages}/about" }
     
     it "should have the h1 'About Us'" do
-      visit url
+      visit about_path
       page.should have_selector('h1', :text => 'About Us')
     end
 
     it "should have the right title" do
-      visit url
+      visit about_path
       page.should have_selector('title',
         :text => "#{base_title} | About Us")
     end
@@ -21,49 +19,46 @@ describe "StaticPages" do
   end
 
   describe 'Contact Us page' do
-    let(:url) { "#{static_pages}/contact" }
     
     it "should have the h1 'Contact Us'" do
-      visit url
+      visit contact_path
       page.should have_selector('h1', :text => 'Contact Us')
     end
     
     it "should have the right title" do
-      visit url
+      visit contact_path
       page.should have_selector('title', :text => "#{base_title} | Contact Us")
     end
   end
   
   describe 'Help page' do
-    let(:url) { "#{static_pages}/help" }
     
     it "should have the h1 'Help'" do
-      visit url
+      visit help_path
       page.should have_selector('h1', :text => 'Help')
     end
 
     it "should have the right title" do
-      visit url
+      visit help_path
       page.should have_selector('title', :text => "#{base_title} | Help")
     end
     
   end
   
   describe "Home page" do
-    let(:url) { "#{static_pages}/home" }
     
     it "should have the h1 'Primero App'" do
-      visit url
+      visit root_path
       page.should have_selector('h1', text: 'Primero App')
     end
 
-    it "should have the right title" do
-      visit url
+    it "should have the base title" do
+      visit root_path
       page.should have_selector('title', text: "#{base_title}")
     end
     
     it "should not have a cutome page title" do
-      visit url
+      visit root_path
       page.should_not have_selector('title', text: '| Home')
     end
   end
